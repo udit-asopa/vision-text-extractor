@@ -121,9 +121,53 @@ vision-text-extractor/
 └── pixi.toml          # Dependencies & tasks
 ```
 
+## 🗺️ Roadmap & Future Updates
+
+We're actively working on exciting new features! Here's what's planned:
+
+### **🚀 Next Release (v0.2.0)**
+- 📊 **Batch Processing**: Process multiple files in one command
+- 🎯 **Output Formats**: JSON, CSV, XML structured output options
+- 🔄 **Result Caching**: Skip reprocessing of identical images
+- 📈 **Progress Bars**: Visual feedback for long operations
+
+### **🌟 Upcoming Features**
+- 🧠 **More AI Providers**: 
+  - Google Gemini Vision
+  - Anthropic Claude Vision
+  - Local Qwen2-VL support
+- 🎨 **Image Preprocessing**: 
+  - Auto-rotate, denoise, enhance quality
+  - OCR confidence scoring
+- 🔧 **Advanced Tools**:
+  - Table structure extraction
+  - Form field detection
+  - Handwriting analysis mode
+
+### **🏢 Enterprise Features** 
+- 🔐 **Enhanced Security**: SOC2 compliance, audit logs
+- ⚡ **Performance**: GPU optimization, model quantization
+- 🌐 **API Server**: REST API for integration
+- 📊 **Analytics**: Usage metrics and accuracy reporting
+
+### **🎯 Long-term Vision**
+- 🤖 **AI Agents**: Multi-step document analysis workflows
+- 🌍 **Multi-language**: Better support for non-English text
+- 📱 **Mobile App**: Companion mobile application
+- 🔌 **Integrations**: Direct cloud storage, CRM, ERP connections
+
+**Want to contribute?** Check our [Issues](https://github.com/udit-asopa/vision-text-extractor/issues) or suggest new features!
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Wiki](https://github.com/udit-asopa/vision-text-extractor/wiki) for development guides and check out existing [Issues](https://github.com/udit-asopa/vision-text-extractor/issues).
+
+**Ways to contribute:**
+- 🐛 **Bug Reports**: Found an issue? Let us know!
+- 💡 **Feature Requests**: Suggest improvements 
+- 📝 **Documentation**: Help improve our wiki
+- 🧪 **Testing**: Try new features and providers
+- 💻 **Code**: Submit pull requests
 
 ## 📄 License
 
