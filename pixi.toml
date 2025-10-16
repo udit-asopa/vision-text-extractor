@@ -1,0 +1,75 @@
+[project]
+name = "vision-text-extractor"
+version = "0.1.0"
+description = "Multi-provider vision-language model for extracting text from images and documents"
+authors = ["Your Name <udit.asopa@gmail.com>"]
+channels = ["conda-forge", "pytorch"]
+platforms = ["linux-64", "osx-64", "win-64"]
+
+[dependencies]
+python = ">=3.10,<3.13"
+numpy = "*"
+opencv = "*"
+python-dotenv = "*"
+
+[pypi-dependencies]
+langchain-core = "*"
+langchain-openai = "*"
+langchain-ollama = "*"
+langgraph = "*"
+typer = "*"
+requests = "*"
+transformers = "*"
+torch = "*"
+pillow = "*"
+langchain-huggingface = "*"
+huggingface-hub = "*"
+accelerate = "*"
+
+[tasks]
+ocr_llm = { cmd = "python main.py", depends-on = ["setup-smolvlm"] }
+ocr_llm_test = { cmd = "python main.py images/chocolate_cake_recipe.png --prompt 'Extract all ingredients and quantities'", depends-on = ["setup-smolvlm"] }
+ocr_ollama = "python main.py"
+ocr_smolvlm = { cmd = "python main.py", depends-on = ["setup-smolvlm"] }
+ocr_url_example = { cmd = "python main.py https://recipecurio.com/recipe-copies/collection3/fresh-tomato-soup-recipe.jpg", depends-on = ["setup-smolvlm"] }
+setup-ollama = "python llm_setup/setup_ollama.py"
+setup-smolvlm = "python llm_setup/setup_smolvlm.py"
+install-deps = "pixi install"
+clean = "rm -rf .pixi __pycache__ **/__pycache__"
+test-setup = "python tests/test_setup.py"
+test-components = "python tests/test_components.py"
+setup = "python llm_setup/setup_and_test.py"
+
+# Example tasks with sample image
+demo-ocr-huggingface = { cmd = "python main.py images/chocolate_cake_recipe.png --provider huggingface", depends-on = ["setup-smolvlm"] }
+demo-ocr-ollama = { cmd = "python main.py images/chocolate_cake_recipe.png --provider ollama --model llava:7b", depends-on = ["setup-ollama"] }
+demo-ocr-openai = "python main.py images/chocolate_cake_recipe.png --provider openai --model gpt-4o"
+
+[tasks.test-imports]
+cmd = "python -c 'import langchain_core, langchain_openai, langchain_ollama, langgraph, cv2, numpy, dotenv, typer; print(\"All imports successful!\")'"
+
+[tasks.run-with-ollama]
+cmd = "python main.py"
+depends-on = ["setup-ollama"]
+
+[tasks.run-with-smolvlm]
+cmd = "python main.py"
+depends-on = ["setup-smolvlm"]
+
+[tasks.run-with-env]
+cmd = "python main.py"
+depends-on = ["check-env"]
+
+[tasks.check-env]
+cmd = "python -c 'from dotenv import load_dotenv; import os; load_dotenv(); print(\"OPENAI_API_KEY:\", \"Set\" if os.getenv(\"OPENAI_API_KEY\") else \"Not set\")'"
+
+[tasks.setup-env]
+cmd = "python -c 'import shutil, os; shutil.copy(\".env.example\", \".env\") if not os.path.exists(\".env\") else print(\".env already exists\")'"
+
+[feature.dev.dependencies]
+ipython = "*"
+jupyter = "*"
+
+[environments]
+default = { solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }
