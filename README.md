@@ -117,6 +117,7 @@ vision-text-extractor/
 ├── tests/              # Test scripts
 ├── images/             # Sample images
 ├── wiki_content/       # Documentation source
+├── LICENSE             # MIT License
 └── pixi.toml          # Dependencies & tasks
 ```
 
@@ -126,7 +127,14 @@ We welcome contributions! Please see our [Wiki](https://github.com/udit-asopa/vi
 
 ## 📄 License
 
-This project is open source. See the license file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**MIT License Summary:**
+- ✅ **Commercial use** - Use in commercial projects
+- ✅ **Modification** - Change and adapt the code  
+- ✅ **Distribution** - Share with others
+- ✅ **Private use** - Use for personal projects
+- ❓ **Warranty** - No warranty provided
 
 ## ⚠️ Privacy Notice
 
