@@ -108,6 +108,24 @@ pixi run ocr_llm "my-image.jpg"
 pixi run ocr_ollama "document.pdf"
 ```
 
+## 🧪 Handwriting OCR Test
+
+Run the handwriting sample test to verify the SmolVLM transcription output.
+
+- Using Pixi (recommended, ensures model setup):
+
+```bash
+pixi run test-handwriting
+```
+
+- Directly with Python:
+
+```bash
+python tests/test_handwriting_ocr.py
+```
+
+The test runs the SmolVLM pipeline against `images/handwriting_sample.webp` and checks the extracted text against the expected transcription. Use the Pixi command if you haven't run `pixi run setup-smolvlm` yet.
+
 ## 📂 Project Structure
 
 ```

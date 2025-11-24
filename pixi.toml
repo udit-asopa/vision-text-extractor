@@ -38,6 +38,7 @@ install-deps = "pixi install"
 clean = "rm -rf .pixi __pycache__ **/__pycache__"
 test-setup = "python tests/test_setup.py"
 test-components = "python tests/test_components.py"
+test-handwriting = { cmd = "python tests/test_handwriting_ocr.py", depends-on = ["setup-smolvlm"] }
 setup = "python llm_setup/setup_and_test.py"
 
 # Example tasks with sample image
