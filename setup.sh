@@ -9,11 +9,21 @@ echo
 # Check if pixi is installed
 if ! command -v pixi &> /dev/null; then
     echo "❌ Pixi is not installed!"
-    echo "📦 Install pixi: https://pixi.sh/latest/#installation"
-    exit 1
+    echo "📦 Installing pixi..."
+    curl -fsSL https://pixi.sh/install.sh | bash
+    
+    # Add pixi to PATH for current session
+    export PATH="$HOME/.pixi/bin:$PATH"
+    
+    if command -v pixi &> /dev/null; then
+        echo "✅ Pixi installed successfully!"
+    else
+        echo "❌ Pixi installation failed. Please install manually: https://pixi.sh/latest/#installation"
+        exit 1
+    fi
+else
+    echo "✅ Pixi is already installed"
 fi
-
-echo "✅ Pixi is installed"
 
 # Install dependencies
 echo "📦 Installing dependencies..."
